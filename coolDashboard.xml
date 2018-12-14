@@ -1,0 +1,41 @@
+<dashboard theme="dark" script="coolScript.js">
+  <label>cool dashboard</label>
+  <row>
+    <panel>
+      <chart id="indexChart">
+        <title>count by index</title>
+        <search>
+          <query>index=main OR index=_internal | stats count by index</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart id="sourcetypeChart">
+        <title>count by sourcetype</title>
+        <search>
+          <query>index=_internal OR index=_audit | stats count by sourcetype</query>
+          <earliest>-1h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Not seeing results?</title>
+      <html>
+                <div id="modal1"/>
+            </html>
+    </panel>
+  </row>
+</dashboard>
