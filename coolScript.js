@@ -91,8 +91,12 @@ require([
                 });                                                                                                                                        
                                                                                                                                                                                             
                 arrayOfIndexNames = _.uniq(arrayOfIndexNames);                                                                                                                                                                           
-                                                                                                                                                                                            
-                $("#modal1").append($("<button class=\"btn btn-primary\" >Click here for help</button>").click(function() {                                                                
+                
+                //var mylink = $("<a href=\"#\">Generate Javascript Diag</a>").click(function() { });
+                //$('div[data-view="views/shared/splunkbar/help/Master"]').find("ul").append($("<li></li>").append(mylink))
+
+                //$("#modal1").append($("<button class=\"btn btn-primary\" >Click here for help</button>").click(function() {  
+                var mylink = $("<a href=\"#\">Not getting search results?</a>").click(function() {
                     // Now we initialize the Modal itself                                                                                                                              
                     var myModal = new Modal("modal1", {                                                                                                                                
                         title: "Permissions needed to view this dashboard",                                                                                                            
@@ -125,8 +129,13 @@ require([
                         // Not taking any action on Close... but I could!                                                                                                              
                     }))                                                                                                                                                                
                     myModal.show(); // Launch it!                                                                                                                                                                     
-                }))  
-            })
+                })
+            
+
+                
+            $("#modal1").append(mylink);
+            $('div[data-view="views/shared/splunkbar/help/Master"]').find("ul").append($("<li></li>").append(mylink));
+        })
         }
     });                                                                                                                                                                        
 });               
