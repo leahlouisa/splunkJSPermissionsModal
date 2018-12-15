@@ -66,6 +66,7 @@ require([
                 console.log("search result are...");
                 console.log(data);
                 var exampleInfoCollection = new Backbone.Collection(data);
+                console.log(exampleInfoCollection);
 
                 arrayOfSearchStrings = [];                                                                                                                                                 
                                                                                                                                                                                             
@@ -103,14 +104,15 @@ require([
                     $(myModal.$el).on("hide", function() {                                                                                                                             
                         // Not taking any action on hide, but you can if you want to!                                                                                                  
                     })                                                                                                                                                                 
-                    var modalBody = $('<p>Data in Splunk is stored in indexes.  Access to each index is governed by membership in Active Directory groups.  Here is how to get access</p>');
+                    var modalBody = $('<p>Data in Splunk is stored in indexes.  Access to each index is governed by membership in Active Directory groups.  Here is how to get access to the indexes in this dashboard.</p></br><table class="table table-chrome"><thead><tr><th>Index</th><th>Active Directory Group</th></tr></thead><tbody></tbody></table>');
                     arrayOfIndexNames.forEach(element => {                                                                                                                             
-                        var ughhh = exampleInfoCollection.where({Index: element});                                                                                                     
+                        var ughhh = exampleInfoCollection.where({Index: element});  
+                        console.log("made it to line 110");                                                                                                   
                         console.log(ughhh);                                                                                                                                            
                         var blerg = JSON.stringify(ughhh);                                                                                                                             
                         console.log(blerg);                                                                                                                                            
                         var asdf  = JSON.parse(blerg);                                                                                                                                 
-                        console.log(asdf[0].group);                                                                                                                                    
+                        console.log(asdf[0].ActiveDirectoryGroup);                                                                                                                                    
                         modalBody.find("tbody").append('<tr><td>' + element + '</td><td>' + asdf[0].ActiveDirectoryGroup + '</td></tr>')                                                              
                     });                                                                                                                                                                
                                                                                                                                                                                         
