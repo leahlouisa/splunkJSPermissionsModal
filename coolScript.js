@@ -68,7 +68,7 @@ require([
                 $(myModal.$el).on("hide", function() {                                                                                                                             
                     // Not taking any action on hide, but you can if you want to!                                                                                                  
                 })                                                                                                                                                                 
-                var modalBody = $('<p>Data in Splunk is stored in indexes.  Access to each index is governed by membership in Active Directory groups.  Here is how to get access</p>'
+                var modalBody = $('<p>Data in Splunk is stored in indexes.  Access to each index is governed by membership in Active Directory groups.  Here is how to get access to the indexes in this dashboard.</p></br><table class="table table-chrome"><thead><tr><th>Index</th><th>Active Directory Group</th></tr></thead><tbody></tbody></table>');
                 arrayOfIndexNames.forEach(element => {                                                                                                                             
                     var ughhh = exampleInfoCollection.where({index: element});                                                                                                     
                     console.log(ughhh);                                                                                                                                            
